@@ -5,7 +5,8 @@ box-sizing: border-box;
 }
 body{
     color: black;
+    background: linear-gradient(blue,white);
 }
-header{
-    
+header{background-color: aquamarine;
+    text-align: center;
 }
