@@ -1,0 +1,26 @@
+{
+  "name": "barnch_manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirokireka/barnch_manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sirokireka/barnch_manager/issues"
+  },
+  "homepage": "https://github.com/sirokireka/barnch_manager#readme",
+  "devDependencies": {
+    "@types/node": "^25.2.0",
+    "@types/typescript": "^0.4.29",
+    "typescript": "^5.9.3"
+  }
+}
