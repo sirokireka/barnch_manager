@@ -4,9 +4,15 @@ padding: 0;
 box-sizing: border-box;
 }
 body{
+    height: 100vh;
     color: black;
-    background: linear-gradient(blue,white);
+    background: linear-gradient(rgb(255, 255, 255),rgb(0, 0, 0));
+    background-repeat:no-repeat;
 }
 header{background-color: aquamarine;
     text-align: center;
+}
+img{
+    height: 50vh;
+    width: 50vh;
 }
