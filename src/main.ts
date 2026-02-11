@@ -1,5 +1,4 @@
 const API_KEY =  `live_5CiIeyt9gQKck94h8dGaoTSXtL8YB9mmEPoS98NyDnJarvVD6dHG9yNgRvHeIpJx`;
-
 interface Breed {
   id: string;
   name: string;
@@ -7,7 +6,6 @@ interface Breed {
   origin: string;
   description: string;
 }
-
 interface CatImage {
   id: string;
   url: string;
@@ -37,16 +35,13 @@ async function fetchCat(): Promise<CatImage | null> {
       console.error("HTTP hiba:", response.status);
       return null;
     }
-
     const data: CatImage[] = await response.json();
     return data[0] ?? null;
-
   } catch (error) {
     console.error("Hiba történt:", error);
     return null;
   }
 }
-
 function displayCat(cat: CatImage): void {
   img.src = cat.url;
 
@@ -58,7 +53,6 @@ function displayCat(cat: CatImage): void {
     breedName.textContent = "Ismeretlen fajta";
   }
 }
-
 async function loadCat(): Promise<void> {
   const cat = await fetchCat();
 
@@ -68,11 +62,7 @@ async function loadCat(): Promise<void> {
     breedName.textContent = "Nem sikerült betölteni a macskát";
   }
 }
-
-// Eseménykezelő gombra
 button.addEventListener("click", loadCat);
-
-
 loadCat();
 
 
