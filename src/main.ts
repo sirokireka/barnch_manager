@@ -32,7 +32,7 @@ async function fetchCats(): Promise<CatImage[]> {
       "https://api.thecatapi.com/v1/images/search?has_breeds=true&limit=3",
       {
         headers: {
-          "x-api-key": API_KEY,
+          "x-api-key": 'live_5CiIeyt9gQKck94h8dGaoTSXtL8YB9mmEPoS98NyDnJarvVD6dHG9yNgRvHeIpJx',
           "Content-Type": "application/json",
         },
       }
