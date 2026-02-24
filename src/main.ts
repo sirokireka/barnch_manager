@@ -27,17 +27,36 @@ const API_KEY = "live_5CiIeyt9gQKck94h8dGaoTSXtL8YB9mmEPoS98NyDnJarvVD6dHG9yNgRv
 
 // API hívás
 async function fetchCats(): Promise<CatImage[]> {
-  const response = await fetch("https://api.thecatapi.com/v1/images/search?has_breeds=true&limit=3", {
-    headers: {
-      "x-api-key": `live_5CiIeyt9gQKck94h8dGaoTSXtL8YB9mmEPoS98NyDnJarvVD6dHG9yNgRvHeIpJx`,
-      "Content-Type": "application/json",
-    },
-  });
-  if (!response.ok) throw new Error("Hiba az API-nál");
-  const data: CatImage[] = await response.json();
-  return data;
-}
+  try {
+    const response = await fetch(
+      "https://api.thecatapi.com/v1/images/search?has_breeds=true&limit=3",
+      {
+        headers: {
+          "x-api-key": API_KEY,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
+    if (!response.ok) {
+      throw new Error(`Hiba az API-nál: ${response.status} ${response.statusText}`);
+    }
+
+    const data: CatImage[] = await response.json();
+
+    // Ellenőrizzük, hogy a visszakapott tömb nem üres-e
+    if (!data || data.length === 0) {
+      throw new Error("Nincs elérhető macska kép az API-tól");
+    }
+
+    return data;
+  } catch (error: any) {
+    // Hibajelzés a felhasználónak
+    console.error("fetchCats error:", error);
+    showMessage(`Hiba történt a macska képek lekérésekor: ${error.message || error}`);
+    return []; // visszatérünk egy üres tömbbel, hogy ne omoljon össze a játék
+  }
+}
 // Inicializálás
 function init() {
   starterButton.addEventListener("click", startGame);
